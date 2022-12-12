@@ -47,7 +47,7 @@ namespace GlassLand.pages
 
             //MessageBox.Show($"{this.Parent}");
 
-            MainWindow.ChangePage(new Orders());
+            MainWindow.ChangePage(new Measurements());
 
         }
     }

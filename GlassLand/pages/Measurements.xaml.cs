@@ -21,17 +21,13 @@ namespace GlassLand.pages
     /// <summary>
     /// Interaction logic for Orders.xaml
     /// </summary>
-    public partial class Orders : Page
+    public partial class Measurements : Page
     {
-        ObservableCollection<Order> OrdersList;
-        public Orders()
+        ObservableCollection<Measurement> OrdersList;
+        public Measurements()
         {
             InitializeComponent();
-            OrdersList = new ObservableCollection<Order>();
-            OrdersList.Add(new Order() { CustomerName = "asdasd", WindowWidth = 10, WindowHeight = 20 });
-            OrdersList.Add(new Order() { CustomerName = "2"});
-            OrdersList.Add(new Order() { Address = "123123123"});
-            OrdersList.Add(new Order() { Measurer = "daddddddddddddd"});
+            OrdersList = new ObservableCollection<Measurement>(Measurement.Find());
             ordersList.ItemsSource = OrdersList;
         }
 
@@ -44,7 +40,7 @@ namespace GlassLand.pages
                 MessageBox.Show("Error");
             }
 
-            var order = view.Tag as Order;
+            var order = view.Tag as Measurement;
             OrdersList.Add(order);
             MessageBox.Show($"{OrdersList.Count}");
         }

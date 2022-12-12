@@ -29,7 +29,7 @@ namespace GlassLand.views
         {
             
 
-            var order = new Order()
+            var order = new Measurement()
             {
                 CustomerName = customerTb.Text,
                 WindowWidth = float.Parse(windowWidthTb.Text), 
