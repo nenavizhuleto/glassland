@@ -20,26 +20,31 @@ namespace GlassLand.views
     /// </summary>
     public partial class CreateOrder : System.Windows.Window
     {
-        public CreateOrder()
+
+        public Measurement measurement;
+        public List<Master> Masters { get; set; }
+        public CreateOrder(Measurement m)
         {
             InitializeComponent();
+            DataContext = this;
+            Masters = Master.Find();
+            measurement = m;
+
         }
 
         private void submitBtn_Click(object sender, RoutedEventArgs e)
         {
             
 
-            var order = new Measurement()
+            var order = new Montage()
             {
-                CustomerName = customerTb.Text,
-                WindowWidth = float.Parse(windowWidthTb.Text), 
-                WindowHeight = float.Parse(windowHeightTb.Text),
-                Measurer = measurerTb.Text,
+                Master = masterTb.Text,
+                Measurement= measurement,
+                Status = "New",
                 Date = (dateTb.SelectedDate != null) ? (DateTime)dateTb.SelectedDate: DateTime.Now,
-                Address= addressTb.Text,
             };
 
-            this.Tag = order;
+            order.Save();
 
             this.DialogResult = true;
             return;

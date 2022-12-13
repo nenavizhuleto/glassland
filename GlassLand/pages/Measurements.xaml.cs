@@ -23,26 +23,39 @@ namespace GlassLand.pages
     /// </summary>
     public partial class Measurements : Page
     {
-        ObservableCollection<Measurement> OrdersList;
+        public ObservableCollection<Measurement> measurements { get; }
         public Measurements()
         {
             InitializeComponent();
-            OrdersList = new ObservableCollection<Measurement>(Measurement.Find());
-            ordersList.ItemsSource = OrdersList;
+
+
+            
+            measurements = new ObservableCollection<Measurement>(Measurement.Find());
+            measurementsList.ItemsSource = measurements;
         }
 
         private void newOrderBtn_Click(object sender, RoutedEventArgs e)
         {
-            var view = new CreateOrder();
+            var m = this.measurementsList.SelectedItem as Measurement;
 
-            if (view.ShowDialog() == null)
+            if (m != null)
             {
-                MessageBox.Show("Error");
+                var view = new CreateOrder(m);
+
+                if (view.ShowDialog() == null)
+                {
+                    MessageBox.Show("Error");
+                }
+
+                MainMenu.montagesView.RefreshList();
+            } else
+            {
+                MessageBox.Show("Please select measure to create order");
             }
 
-            var order = view.Tag as Measurement;
-            OrdersList.Add(order);
-            MessageBox.Show($"{OrdersList.Count}");
+
         }
+
+
     }
 }

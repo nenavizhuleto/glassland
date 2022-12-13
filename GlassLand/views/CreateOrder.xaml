@@ -4,26 +4,21 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GlassLand.views"
-        mc:Ignorable="d"
-        Title="CreateOrder" Height="450" Width="800">
+        mc:Ignorable="d" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="Create Montage Order" Height="450" Width="800">
     <StackPanel Margin="50 20">
-        <TextBlock>Customer Name</TextBlock>
-        <TextBox x:Name="customerTb" />
-        <TextBlock>Window</TextBlock>
-        <StackPanel Orientation="Horizontal" Margin="10">
-            <TextBlock>Width</TextBlock>
-            <TextBox x:Name="windowWidthTb" Width="100" Margin="10 0" />
-            <TextBlock>Height</TextBlock>
-            <TextBox x:Name="windowHeightTb" Width="100" Margin="10 0"/>
-        </StackPanel>
+        <ComboBox
+            x:Name="masterTb"
+            Style="{StaticResource MaterialDesignOutlinedComboBox}"
 
-        <TextBlock>Measurer</TextBlock>
-        <TextBox x:Name="measurerTb" />
+            materialDesign:HintAssist.Hint="Master"
+            ItemsSource="{Binding Masters}"
+            DisplayMemberPath="Name"
+             />
+
 
         <TextBlock>Date</TextBlock>
         <DatePicker x:Name="dateTb" />
-        <TextBlock>Address</TextBlock>
-        <TextBox x:Name="addressTb" />
         <Button x:Name="submitBtn" Click="submitBtn_Click"  Content="Create" Margin="0 10"/>
     </StackPanel>
 </Window>

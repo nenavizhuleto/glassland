@@ -13,26 +13,20 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-using GlassLand.pages;
-
-namespace GlassLand
+namespace GlassLand.pages
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for MainMenu.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainMenu : Page
     {
-        public static Frame frame;
-        public MainWindow()
+        public static Measurements measurementsView { get; set; } = new Measurements();
+        public static Montages montagesView { get; set; } = new Montages();
+        public MainMenu()
         {
             InitializeComponent();
-            frame = mainFrame;
-            frame.Content = new Auth();
-        }
-
-        public static void ChangePage(Page page)
-        {
-            frame.Content = page;
+            measurements.Content = measurementsView;
+            montages.Content = montagesView;
         }
     }
 }
