@@ -80,11 +80,6 @@
     </ApplicationDefinition>
     <Compile Include="db\Master.cs" />
     <Compile Include="db\Montage.cs" />
-    <Compile Include="glasslandDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>glasslandDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="pages\MainMenu.xaml.cs">
       <DependentUpon>MainMenu.xaml</DependentUpon>
     </Compile>
@@ -154,17 +149,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="glasslandDataSet.xsc">
-      <DependentUpon>glasslandDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="glasslandDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>glasslandDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="glasslandDataSet.xss">
-      <DependentUpon>glasslandDataSet.xsd</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -173,15 +157,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="glassland.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="glassland_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>glassland.mdf</DependentUpon>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
