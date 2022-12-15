@@ -1,9 +1,11 @@
-﻿using System;
+﻿using GlassLand.Properties;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Markup;
 
 namespace GlassLand.db
@@ -11,17 +13,21 @@ namespace GlassLand.db
     
     public class Db
     {
-        // "Data Source = (localdb)\\MSSQLLocalDB;Initial Catalog = C:\\USERS\\ADMINISTRATOR\\SOURCE\\REPOS\\GLASSLAND\\GLASSLAND\\GLASSLAND.MDF;Integrated Security = True\r\n"
 
-
-
-        static string connectionString = "Data Source = (localdb)\\MSSQLLocalDB;Initial Catalog = [DatabaseName];Integrated Security = True\r\n";
+        static SqlConnectionStringBuilder connectionStringBuilder = new SqlConnectionStringBuilder()
+        {
+            DataSource = @"(localdb)\MSSQLLocalDB",
+            InitialCatalog = "glassland",
+            UserInstance = true,
+            IntegratedSecurity = true,
+            AttachDBFilename = @"|DataDirectory|\glassland.mdf"
+        };
         public Db() {
-
+            
         }
 
         public static SqlConnection Connect() {
-            return new SqlConnection(connectionString);
+            return new SqlConnection(Settings.Default.glasslandConnectionString);
         }
 
         public void Disconnect() { }
